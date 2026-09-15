@@ -55,4 +55,20 @@ Raw benchmark data, original API responses, failed response archives, and creden
 
 Zhang et al. (2025), *Which Agent Causes Task Failures and When? On Automated Failure Attribution of LLM Multi-Agent Systems*, ICML, PMLR 267:76583–76599. https://proceedings.mlr.press/v267/zhang25cq.html
 
-The study is self-funded. The sole author declares no competing interests. AI tools assisted research planning, code development, analysis, and writing; the author is responsible for verification and the final work.
+The study is self-funded. The sole author declares no competing interests. Hongming Guo led the research planning, analysis, and manuscript drafting and revision. AI tools provided supporting suggestions, code assistance, and checks of analyses and wording under his direction. The author retained research and editorial decisions and responsibility for verifying AI outputs and the final manuscript.
+
+## September 2026 audit update
+
+The latest audit identifies eight Kimi full-log/repeat-0 records with output cap 4096, while the final manifest specifies 8192. These records were retained in the historical results. Excluding their five entire question groups leaves 107 groups and 140 trajectories; the six Kimi full-minus-bounded differences remain positive but none survives six-test Holm correction.
+
+Across the main eighteen full-minus-bounded comparisons, five survive correction within configuration; only GLM prefix6k survives correction across all eighteen. The eighteen same-budget strategy comparisons are not significant after correction as a separate family. Suffix has the highest bounded point estimate for all three configurations at 12k; this does not establish statistical superiority.
+
+Additional offline scripts:
+
+- `build_submission_evidence.py`: audits original local v3 records and exports scored evidence (requires the response archive and prepared benchmark inputs).
+- `audit_configuration_sensitivity.py`: excludes all cap-affected groups consistently across Kimi conditions.
+- `compare_bounded_strategies.py`: paired same-budget comparisons.
+- `reproduce_scored_evidence.py`: reproduces numerical tables from the manuscript's Supplementary Material S1; no raw log text or API access required.
+- `render_submission_effects.py`: renders the vector figure from audited estimates.
+
+These exports use `paper/evidence/`. The response archive and Supplementary Material S1 are not uploaded in this code-only update. Use the supplement accompanying the manuscript for scored-outcome replication; this repository alone still does not contain the historical results. Install `requirements-analysis.txt` for plot generation and audit export; the scored-outcome reproduction script uses only the standard library and the supplied statistics module.
