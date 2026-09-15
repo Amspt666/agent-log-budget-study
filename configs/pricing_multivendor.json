@@ -1,0 +1,6 @@
+{
+  "_comment": "CNY per 1M tokens, as supplied by the user 2026-09-14. GLM/Qwen exact; Kimi approximate (~). Cached input is billed separately and much cheaper than fresh input.",
+  "glm":  {"in": 0.8, "out": 2.8, "cached": 0.23},
+  "qwen": {"in": 0.8, "out": 2.7, "cached": 0.1},
+  "kimi": {"in": 6.5, "out": 27.0, "cached": 1.1}
+}
